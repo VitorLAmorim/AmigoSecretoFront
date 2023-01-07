@@ -9,7 +9,7 @@ const { _id, name, email } = props.obj;
 const deletarpessoa = () => {
 	axios
 	.get(
-"http://localhost:5000/delete/" + _id)
+"https://amigosecretoback.fly.dev/delete/" + _id)
 	.then((res) => {
 		if (res.status === 200) {
 		alert("Pessoa deletada");

@@ -9,7 +9,7 @@ const Sortear = () => {
   
   useEffect(() => {
     axios
-      .get("http://localhost:5000/sorteio")
+      .get("https://amigosecretoback.fly.dev/sorteio")
       .then(({ data }) => {
         setPessoas(data);
       })
@@ -30,7 +30,7 @@ const Sortear = () => {
   function enviaremail(){
     axios
       .get(
-        "http://localhost:5000/Sendemail"         
+        "https://amigosecretoback.fly.dev/Sendemail"         
       )     
       .catch((err) => console.log(err));
 

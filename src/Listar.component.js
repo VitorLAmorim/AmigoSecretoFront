@@ -8,7 +8,7 @@ const Listar = () => {
   
   useEffect(() => {
     axios
-      .get("http://localhost:5000/Home/")
+      .get("https://amigosecretoback.fly.dev/Home/")
       .then(({ data }) => {
         setPessoas(data);
       })

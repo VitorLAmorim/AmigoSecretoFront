@@ -1,7 +1,7 @@
   
 // Import Modules
 import React, { useState, useEffect } from "react";
-import {useLocation} from "react-router-dom"
+import {redirect, useLocation,useNavigate} from "react-router-dom"
 import axios from "axios";
 import CadastrarForm from "./CadastrarForm";
   
@@ -9,6 +9,7 @@ import CadastrarForm from "./CadastrarForm";
 const Editar = (props) => {
   const location = useLocation();
   const state = location.state;
+  const navigate = useNavigate();
   const [formValues, setFormValues] = useState({
   name: "",
   email: "",
@@ -18,14 +19,14 @@ const Editar = (props) => {
   const onSubmit = (FormObject) => {
     axios
       .post(
-        "http://localhost:5000/update/" +
+        "https://amigosecretoback.fly.dev/update/" +
          state,
           FormObject
       )
       .then((res) => {
         if (res.status === 200) {
           alert("Atualizado com sucesso");
-          
+          navigate('/');
         } else Promise.reject();
       })
       .catch((err) => alert("Alguma coisa deu errado"));
@@ -35,7 +36,7 @@ const Editar = (props) => {
   useEffect(() => {
     axios
       .get(
-        "http://localhost:5000/editar/" 
+        "https://amigosecretoback.fly.dev/editar/" 
         +state
       )
       .then((res) => {
